@@ -1,0 +1,87 @@
+<div class="row justify-content-center mt-5">
+
+    <div class="col-md-7 mb-5">
+        <div class="card">
+            <div class="card-body centrar">
+
+                <div class="card-header">
+                    <h4 class="centrar"><i class="fas fa-user"></i> Perfil usuario</h4>
+                </div>
+
+                <p></p>
+                <form (ngSubmit)="actualiza()" role="form">
+
+                    <div class="form-group row">
+                        <div class="col izquierda">
+                            <label for="nombre" class="col-form-label">Nombre</label>
+                            <input type="text" name="nombre" id="nombre" class="form-control" autofocus required="required" />
+                        </div>
+
+                        <div class="col-7 izquierda">
+                            <label for="apellidos" class="col-form-label">Apellidos</label>
+                            <input type="text" name="apellidos" id="apellidos" class="form-control" required="required" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-2 izquierda">
+                            <label for="edad" class="col-form-label">Edad</label>
+                            <input type="number" name="edad" id="edad" class="form-control" min="0" max="99" autofocus required="required" />
+                        </div>
+
+                        <div class="col-3 izquierda">
+                            <label for="login" class="col-form-label">Login</label>
+                            <input type="text" name="login" id="login" class="form-control" autofocus required="required" />
+                        </div>
+
+                        <div class="col izquierda">
+                            <label for="email" class="col-form-label">Email</label>
+                            <input type="email" name="email" id="email" class="form-control" required="required" />
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+
+                        <div class="col izquierda">
+                            <label for="password1" class="col-form-label">Password</label>
+                            <input type="password" name="password" id="password" class="form-control" required="required" />
+                        </div>
+
+                        <div class="col izquierda">
+                            <label for="password2" class="col-form-label">Repite Password</label>
+                            <input type="password" name="password2" id="password2" class="form-control" required="required" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-2">
+                        <div class="col">
+                            <button type="submit" class="btn btn-lg btn-primary btn-block mt-3">Actualizar</button>
+                            <a [routerLink]="['/perfil']" (click)="eliminaUsuario()" class="btn btn-lg btn-danger btn-block mt-3 blanco">Eliminar</a>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+        <div class="card mt-4 mb-5">
+            <div class="card-body">
+
+                <div class="card-header">
+                    <h4 class="centrar"><i class="fas fa-share-square"></i> Suscripciones</h4>
+                </div>
+
+                <ul class="mt-2" *ngFor="let suscripcion of listadoSuscripciones" style="list-style: none;">
+                    <li><a [routerLink]="['/perfil']" (click)="borrarSuscripcion(suscripcion.idSuscripcion)"><i class="fas fa-minus-square"></i></a> {{ suscripcion.categoriaSuscrita.nombre }}</li>
+                </ul>
+
+
+                <ul class="mt-2" *ngFor="let categoria of listadoCategorias" style="list-style: none;">
+                    <li><a [routerLink]="['/perfil']" (click)="suscribirse(categoria.idCategoria)"><i class="fas fa-plus-square"></i></a> {{ categoria.nombre }}</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>

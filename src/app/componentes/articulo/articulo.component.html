@@ -1,0 +1,50 @@
+<div class="row justify-content-center mt-5 mb-5">
+    <div class="col mb-5">
+        <h1 class="display-4">{{ articulo.titulo }}</h1>
+        <br>
+        <img [src]="url" style="width: 100%; height: 30%;" alt="image news" />
+        <h4 class="display">{{ articulo.descripcion }}</h4>
+        <div class="row justify-content-center mt-5">
+            <div class="col-2 mb-5">
+                <i class="fa fa-tags"></i> Tags
+                <hr>
+                <ul *ngFor="let categoria of listadoCategorias" style="list-style: none;">
+                    <li>{{ categoria.nombre }}</li>
+                </ul>
+            </div>
+            <div class="col-10 border-left">
+                <p>{{ articulo.contenido }}</p>
+            </div>
+        </div>
+        <br>
+        <i class="fas fa-comments"></i> Comentarios
+
+        <div class="card mt-2" *ngFor="let comentario of listadoComentarios">
+            <div class="card-body">
+                <div class="row justify-content-center">
+                    <div class="col-2 border-right">
+                        <i class="fas fa-user"></i> {{ comentario.usuarioEstandar.login }}<br>
+                        <div *ngIf="comentario.usuarioEstandar.idUsuario == idUsuario">
+                            <a class="nav-link" [routerLink]="['/articulo', idArticulo]" href="articulo/idArticulo" (click)="borraComentario(comentario.idComentario)"><i class="far fa-trash-alt"></i> Eliminar</a>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <p class="cite">
+                            {{ comentario.contenido }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-2">
+            <div class="card-body">
+                <form (ngSubmit)="comentar()" role="form">
+                    <textarea class="form-control" id="contenido" name="contenido" style="height: 150px;resize: none;"></textarea>
+                    <button type="submit" class="btn btn-primary mt-2">Comentar</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

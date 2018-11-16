@@ -1,0 +1,25 @@
+<div class="row justify-content-center mt-5 mb-5">
+    <div class="col mb-5" *ngIf="masVisitados">
+        <div class="card mb-2" *ngFor="let articulo of listadoArticulos" style="width: 100%;">
+            <div class="card-body centrar">
+                <a [routerLink]="['/articulo', articulo.idArticulo]" style="text-decoration:none;">
+                    <h1 class="card-title centrar">{{ articulo.titulo }}</h1>
+                </a>
+                <a [routerLink]="['/articulo', articulo.idArticulo]">
+                    <p class="card-text">{{ articulo.descripcion }}</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col mb-5" *ngIf="idCategoria">
+        <h1 class="display-4 centrar">{{ categoria.nombre }}</h1><br>
+        <div class="card mb-2" *ngFor="let tag of listadoTags" style="width: 100%;">
+            <div class="card-body centrar">
+                <a [routerLink]="['/articulo', tag.articuloTag.idArticulo]" style="text-decoration:none;">
+                    <h1 class="card-title centrar">{{ tag.articuloTag.titulo }}</h1>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

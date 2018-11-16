@@ -1,0 +1,68 @@
+<div class="row justify-content-center mt-5">
+
+    <div class="col-md-7">
+        <div class="card">
+            <div class="card-body centrar">
+
+                <div class="card-header">
+                    <h4 class="centrar"><i class="fas fa-user-plus"></i> Registrar usuario</h4>
+                </div>
+
+                <p></p>
+                <form [formGroup]="formularioRegistro" (ngSubmit)="registroUsuario(formularioRegistro)" role="form">
+
+                    <div class="form-group row">
+                        <div class="col izquierda">
+                            <label for="nombre" class="col-form-label">Nombre</label>
+                            <input type="text" formControlName="nombre" name="nombre" id="nombre" class="form-control" autofocus required="required" />
+                        </div>
+
+                        <div class="col-7 izquierda">
+                            <label for="apellidos" class="col-form-label">Apellidos</label>
+                            <input type="text" formControlName="apellidos" name="apellidos" id="apellidos" class="form-control" required="required" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-2 izquierda">
+                            <label for="edad" class="col-form-label">Edad</label>
+                            <input type="number" formControlName="edad" name="edad" id="edad" class="form-control" value="{{ valor }}" min="0" max="99" autofocus required="required" />
+                        </div>
+
+                        <div class="col-3 izquierda">
+                            <label for="login" class="col-form-label">Login</label>
+                            <input type="text" formControlName="login" name="login" id="login" class="form-control" autofocus required="required" />
+                        </div>
+
+                        <div class="col izquierda">
+                            <label for="email" class="col-form-label">Email</label>
+                            <input type="email" formControlName="email" name="email" id="email" class="form-control" required="required" />
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+
+                        <div class="col izquierda">
+                            <label for="password1" class="col-form-label">Password</label>
+                            <input type="password" formControlName="password" name="password" id="password" class="form-control" required="required" />
+                        </div>
+
+                        <div class="col izquierda">
+                            <label for="password2" class="col-form-label">Repite Password</label>
+                            <input type="password" name="password2" id="password2" class="form-control" required="required" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-2">
+                        <div class="col">
+                            <button type="submit" class="btn btn-lg btn-primary btn-block mt-3">¡Crear cuenta!</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
